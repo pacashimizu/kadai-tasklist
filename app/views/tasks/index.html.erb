@@ -11,7 +11,7 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= link_to task.id, task_path(task) %></td>
+        <td><%= link_to task.id, task_path(task), class: "text-decoration-none" %></td>
         <td><%= task.content %></td>
         <td><%= task.status %></td>
       </tr>
