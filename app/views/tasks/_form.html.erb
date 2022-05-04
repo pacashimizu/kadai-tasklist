@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-6">
   <%= form_with(model: task) do |f| %>
-    <% if task.errors.any? %>
+    <!-- <% if task.errors.any? %>
       <div id="error_explanation" class="alert alert-warning">
         <ul class="mb-0">
           <% task.errors.full_messages.each do |msg| %>
@@ -9,16 +9,18 @@
           <% end %>
         </ul>
       </div>
-    <% end %>
+    <% end %> -->
+    
+    <%= render "layouts/error_messages", model: f.object %>
     
     <div class="mb-3">
       <%= f.label :content, "タスク" %>
-      <%= f.text_field :content, class: "form-control", required: true %>
+      <%= f.text_field :content, class: "form-control" %>
     </div>
     
     <div class="mb-3">
       <%= f.label :status, "ステータス" %>
-      <%= f.select :status, ["未対応", "処理中", "処理済み", "保留", "完了"], {include_blank: "選択してください"}, {class: "form-control", required: true} %>
+      <%= f.select :status, ["未対応", "処理中", "処理済み", "保留", "完了"], {include_blank: "選択してください"}, {class: "form-control"} %>
     </div>
     
     <div class="mb-3">
